@@ -35,10 +35,16 @@ The system reads CAN frames from a 500 kbps CAN network without transmitting ont
 1. Open `CAN_Bus_Sniffer.ino` in the Arduino IDE.
 2. Install the MCP2515 library.
 3. Connect the MCP2515 module to the microcontroller over SPI.
-4. Connect the CAN interface to the CAN bus.
-5. Upload the sketch.
-6. Open the Serial Monitor at 115200 baud.
-7. Observe CAN frames in real time.
+4. Connect the CAN transceiver/module to the vehicle's OBD-II CAN lines.
+5. Connect the microcontroller to the computer over USB.
+6. Upload the sketch.
+7. Open the Serial Monitor at 115200 baud.
+8. Turn the vehicle ignition on so the CAN network is active.
+9. Observe CAN frames in real time.
+
+The MCP2515 is configured in listen-only mode, so the project passively monitors CAN traffic without transmitting frames onto the bus.
+
+> Note: This project is configured for a 500 kbps CAN bus and an 8 MHz MCP2515 oscillator. The vehicle network must use the same CAN bitrate for frames to be decoded correctly.
 
 ## How It Works
 
